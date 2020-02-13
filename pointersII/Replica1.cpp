@@ -14,5 +14,5 @@ void Replica1::Talk()
 
 Replica1::~Replica1()
 {
-	
+	std::cout << "\nThe replica has expired";
 }

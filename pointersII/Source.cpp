@@ -17,15 +17,15 @@ int main()
 	//{going in scope
 	//}going out of scope
 
-	cout << "Just exited scope with a unique pointer to replica" << endl;
+	cout << "\nJust exited scope with a unique pointer to replica" << endl;
 	{
 		//While there are three ways to make this unique pointer
 		//this is the safest from exceptions and memory leaks
 
 		unique_ptr<Replica1> replica = make_unique<Replica1>();
-		//replica->Talk();
+		replica->Talk();
 	}
-	cout << "Just exited scope for a unique pointer to replica." << endl;
+	cout << "\nJust exited scope for a unique pointer to replica." << endl;
 	cout << endl;
 	cout << "About to enter outer scope for a shared pointer to replica." << endl;
 	{
@@ -41,12 +41,12 @@ int main()
 			//you are copying it
 			//cannot copy a unique pointer
 			sharedReplica1 = sharedReplica2;
-			//sharedReplica1->Print();
+			sharedReplica1->Talk();
 		}
-		cout << "Just exited inner scope for a shared pointer to replicant." << endl;
+		cout << "\nJust exited inner scope for a shared pointer to replicant." << endl;
 	}
 	//Notice because shared replica1 finally dies, then the replica dies here
-	cout << "Exited outer scope for a shared pointer to replica." << endl;
+	cout << "\nExited outer scope for a shared pointer to replica." << endl;
 	cout << endl;
 
 	cout << "About to enter outer scope for a weaker pointer to replica." << endl;
@@ -62,9 +62,9 @@ int main()
 			//you are copying it
 			//one cannot copy a unique pointer
 			weakReplica = SharedReplica2;
-			//weakReplia->Print();
+			//weakReplica->Talk();
 		}
-		cout << "exited inner scope fpr a weak pointer to replica" << endl;
+		cout << "\nexited inner scope fpr a weak pointer to replica" << endl;
 	}
 	cout << "exited outer scope for a weak pointer to replica" << endl;
 	cout << endl;
